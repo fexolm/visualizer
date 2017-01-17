@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E90AB90-ED6A-488E-9760-70B2DB1DCC15}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visualizer</RootNamespace>
+    <AssemblyName>Visualizer</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Drawing\Drawer.cs" />
+    <Compile Include="Drawing\Figures\Figure.cs" />
+    <Compile Include="Drawing\Figures\Rectangle.cs" />
+    <Compile Include="Drawing\IDrawer.cs" />
+    <Compile Include="Parser\Implementation\BindingParser.cs" />
+    <Compile Include="Parser\Implementation\FinalParser.cs" />
+    <Compile Include="Parser\Implementation\MoveParser.cs" />
+    <Compile Include="Parser\Implementation\InitParser.cs" />
+    <Compile Include="Parser\Implementation\MapParser.cs" />
+    <Compile Include="Parser\Interfaces\IBindingParser.cs" />
+    <Compile Include="Parser\Interfaces\IFinalParser.cs" />
+    <Compile Include="Parser\Interfaces\IInitParser.cs" />
+    <Compile Include="Parser\Interfaces\IMoveParser.cs" />
+    <Compile Include="Parser\Interfaces\IMapParser.cs" />
+    <Compile Include="Parser\ResultTypes\FigureResult.cs" />
+    <Compile Include="Parser\ResultTypes\MapResult.cs" />
+    <Compile Include="Parser\ResultTypes\TickInfo.cs" />
+    <Compile Include="Repo\Binding\BindingRepository.cs" />
+    <Compile Include="Drawing\IFigure.cs" />
+    <Compile Include="Main\Initialize.cs" />
+    <Compile Include="Forms\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Program.cs" />
+    <Compile Include="Parser\Interfaces\IParser.cs" />
+    <Compile Include="Parser\ResultTypes\ActionResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\AOP\Interseptors\BaseInterceptor.cs" />
+    <Compile Include="Repo\AOP\Interseptors\EmptyInterceptor.cs" />
+    <Compile Include="Repo\AOP\Interseptors\IInterceptor.cs" />
+    <Compile Include="Repo\AOP\Repository.cs" />
+    <Compile Include="Forms\Visualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Visualizer.Designer.cs">
+      <DependentUpon>Visualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repo\Figure\FigureRepository.cs" />
+    <Compile Include="Repo\Method\MethodRepository.cs" />
+    <EmbeddedResource Include="Forms\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Visualizer.resx">
+      <DependentUpon>Visualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AssemblyDependencies1.dgml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
